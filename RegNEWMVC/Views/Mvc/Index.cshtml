@@ -1,0 +1,50 @@
+﻿@model IEnumerable<RegNEWMVC.Models.MvcModel>
+
+@{
+    ViewData["Title"] = "Index";
+}
+<div class=row>
+    <div class="col-md-3">
+        <h3>User Table</h3>
+    </div>
+    <div class="col-md-7"></div>
+    <div class="col-md-2">
+        <a asp-action="Create"><input type="submit" value="Create User" class="btn btn-primary"></a>
+    </div>
+</div>
+<hr />
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th scope="col">FName</th>
+            <th scope="col">LName</th>
+            <th scope="col">Email</th>
+            <th scope="col">DOB</th>
+            <th scope="col">Department</th>
+            <th scope="col">Designation</th>
+            <th scope="col">City</th>
+            <th scope="col">ContactNo</th>
+            <th scope="col">Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.FName</td>
+                <td>@item.LName</td>
+                <td>@item.Email</td>
+                <td>@item.DOB</td>
+                <td>@item.Department</td>
+                <td>@item.Designation</td>
+                <td>@item.City</td>
+                <td>@item.ContactNo</td>
+                <td>
+                    <i class="fas fa-pencil"></i>
+                    @Html.ActionLink("Edit", "Edit", new {  id=item.Id }) |
+                    @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
